@@ -1,0 +1,388 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+  <!-- Include your specific stylesheets here if needed -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://kit.fontawesome.com/a076d05399.js">
+
+  <style>
+    
+    .icon-box-container {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .icon-box {
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+      background-color: white;
+      position: relative;
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      margin-right: 20px;
+      border-radius:5px;
+    }
+
+    .icon-box::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 10px;
+      border-top-left-radius: 5px; /* Add border radius to the top left corner */
+      border-bottom-left-radius: 5px; /* Add border radius to the bottom left corner */
+    }
+    
+    .icon-box:nth-child(1)::before {
+      background-color: #9cb1ce; /* First box: purple line */
+    }
+    
+    .icon-box:nth-child(2)::before {
+      background-color: #35a6ca; /* Second box: blue line */
+    }
+    
+    .icon-box:nth-child(3)::before {
+      background-color: #f3a22a; /* Third box: yellow line */
+    }
+    
+    .icon-box:nth-child(4)::before {
+      background-color: #e36262; /* Fourth box: red line */
+    }
+
+    .icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .icon-box {
+      display: flex;
+      align-items: flex-start; /* Align items to the top of the box */
+    }
+    
+    .icon-box .icon {
+      margin-right: 10px;
+      margin-top: 4px; /* Adjust the margin as needed */
+    }
+    .icon-box-heading {
+      font-size: 15px; /* Adjust the font size as needed */
+      margin: 0;
+    }
+    .icon-value {
+      font-size: 36px;
+      text-align: center;
+      margin: 0; /* Remove the margin */
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      height: 100%; /* Ensure the height takes up the full space */
+    }
+    
+
+    .custom-input-group {
+      display: flex;
+    }
+
+    .custom-input-group input {
+      width: 50%;
+    }
+    /* Original styles here */
+
+  @media (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    .icon-box-container {
+      flex-direction: column;
+    }
+
+    .icon-box {
+      display: flex;
+      align-items: flex-start; /* Align items to the top of the box */
+    }
+
+    .icon-box::before {
+      display: none;
+    }
+
+    .custom-input-group input {
+      width: 100%;
+    }
+
+    /* Adjust other styles as needed for smaller screens */
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color:#f2f5f9;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.left {
+    text-align: left;
+}
+
+#date {
+    font-size: 12px;
+    margin: 0;
+    color:#6D6D6D;
+}
+
+#name {
+    font-size: 24px;
+    margin: 0;
+}
+
+.right {
+    margin-left:40px;
+    text-align: right;
+}
+
+#new-case {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#new-case:hover {
+    background-color: #0056b3;
+}
+.table th,
+    .table td {
+      padding: 30px; /* Adding padding for better spacing within cells */
+    }
+
+    .table-heading {
+      margin-bottom: 30px; /* Increase space below heading */
+    }
+
+    .table-row {
+      margin-top: 20px; /* Increase space above rows */
+    }
+    .input-container {
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 6px;
+    }
+  
+    .input-container select, .input-container input {
+      width: 100px;
+      height: 20px;
+      border: none;
+      outline: none;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+  
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="header">
+  <div class="left">
+      <p id="date">Mon, 11 Jun 2023</p>
+      <p id="name">Hello M.Behman!</p>
+  </div>
+  <div class="right">
+      <button id="new-case">+ New Case</button>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="icon-box-container">
+    <div class="icon-box">
+      
+      <i class="fa fa-newspaper-o"  style="font-size: 13px;"> New Cases</i>
+      <div class="icon-value">&nbsp;&nbsp;&nbsp;&nbsp;04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> <!-- Apply the updated .icon-value class here -->
+    </div>
+    <div class="icon-box">
+      <i class="fa fa-newspaper-o"  style="font-size: 13px;"> Total Cases</i>
+      <div>
+        <p class="icon-value" style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      </div>
+    </div>
+    <div class="icon-box">
+      <i class="fa fa-newspaper-o" " style="font-size: 13px;"> Cases in Progress</i>
+      <div>
+        <p class="icon-value" style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      </div>
+    </div>
+    <div class="icon-box">
+      <i class="fa fa-newspaper-o"  style="font-size: 13px;"> Cases Pending</i>
+      <div>
+        <p class="icon-value">&nbsp;&nbsp;&nbsp;&nbsp;04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5" style="margin-bottom:-40px">
+  <div style="position: relative;">
+    <input type="text" style="padding-left: 10px; padding-right: 40px; width: 300px; border:none; height:35px; border-radius:10px;" placeholder="Search">
+    <i class="fa fa-search" aria-hidden="true" style="position: absolute; top: 7px; left: 275px;"></i>
+    <i class="fa fa-sort" aria-hidden="true" style="position: absolute; top: 5px; right: 80px;"> Sorting</i>
+    <i class="fa fa-filter" aria-hidden="true" style="position: absolute; top: 5px; right: 0px;"> Filter</i>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="container mt-5">
+  <table class="table" id="caseTable" style="border: 1px solid #f1f1f1; font-size:14px;">
+      <tr class="table-heading">
+        <th style="color:white; height: 50px;">ACTIONS</th>
+        <th style="height: 50px; font-size:14px;">Case ID</th>
+        <th style="height: 50px; font-size:14px;">Date</th>
+        <th style="height: 50px; font-size:14px;">Patient Name</th>
+        <th style="height: 50px; font-size:14px;">Dentist</th>
+        <th style="height: 50px; font-size:14px;">Treatment</th>
+        <th style="height: 50px; font-size:14px;">Quantity</th>
+        <th style="height: 50px; font-size:14px;">Status</th>
+        <th style="height: 50px; font-size:14px;">Dispatch Date</th>
+        <th style="color:white; height: 50px; font-size:14px;">ACTIONS</th>
+      </tr>
+      <tr class="table-row">
+        <td style="height: 50px; font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" style="color: red;"></i></td>
+        <td style="height: 50px; font-size:12px;">1</td>
+        <td style="height: 50px; font-size:12px;">2023-08-29</td>
+        <td style="height: 50px; font-size:12px;">John Doe</td>
+        <td style="height: 50px; font-size:12px;">Dr. Smith</td>
+        <td style="height: 50px; font-size:12px;">Tooth Extraction</td>
+        <td style="height: 50px; font-size:12px;">01</td>
+        <td style="height: 50px; font-size:12px;">
+          <button style="font-size:12px; width:100px; height: 30px; background-color:#a0b4cc; color:white; border-radius:200px; border:none; box-shadow:none;">New</button>
+        </td>
+        <td style="height: 50px;font-size:12px;">2023-08-30</td>
+        <td style="height: 50px;font-size:12px;">
+          <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+          <a href="#" style="color: blue; text-decoration: none; margin-left: 5px;">View</a>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <td style="height: 50px;font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" style="color: red;"></i>
+        </td>
+        <td style="height: 50px;font-size:12px;">2</td>
+        <td style="height: 50px;font-size:12px;">2023-08-29</td>
+        <td style="height: 50px;font-size:12px;">John Doe</td>
+        <td style="height: 50px;font-size:12px;">Dr. Smith</td>
+        <td style="height: 50px;font-size:12px;">Tooth Extraction</td>
+        <td style="height: 50px;font-size:12px;">01</td>
+        <td style="height: 50px;font-size:12px;">
+          <button style="width:100px;font-size:12px; height: 30px; background-color:#f8a42c; color:white; border-radius:200px; border:none; box-shadow:none;">Waiting</button>
+        </td>
+        <td style="height: 50px;font-size:12px;">2023-08-30</td>
+        <td style="height: 50px;font-size:12px;">
+          <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+          <a href="#" style="color: blue; text-decoration: none; margin-left: 5px; font-size:12px; ">View</a>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <td style="height: 50px; font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-spinner" aria-hidden="true"></i></td>
+        <td style="height: 50px; font-size:12px;">3</td>
+        <td style="height: 50px; font-size:12px;">2023-08-29</td>
+        <td style="height: 50px; font-size:12px;">John Doe</td>
+        <td style="height: 50px; font-size:12px;">Dr. Smith</td>
+        <td style="height: 50px; font-size:12px;">Tooth Extraction</td>
+        <td style="height: 50px; font-size:12px;">01</td>
+        <td style="height: 50px; font-size:12px;">
+          <button style="width:100px; font-size:12px; height: 30px; background-color:#35a6ca; color:white; border-radius:200px; border:none; box-shadow:none;">Accept</button>
+        </td>
+        <td style="height: 50px; font-size:12px;">2023-08-30</td>
+        <td style="height: 50px; font-size:12px;">
+          <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+          <a href="#" style="color: blue; text-decoration: none; margin-left: 5px;">View</a>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <td style="height: 50px; font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td style="height: 50px; font-size:12px;">4</td>
+        <td style="height: 50px; font-size:12px;">2023-08-29</td>
+        <td style="height: 50px; font-size:12px;">John Doe</td>
+        <td style="height: 50px; font-size:12px;">Dr. Smith</td>
+        <td style="height: 50px; font-size:12px;">Tooth Extraction</td>
+        <td style="height: 50px; font-size:12px;">01</td>
+        <td style="height: 50px; font-size:12px;">
+          <button style=" font-size:12px; width:100px; height: 30px; background-color:green; color:white; border-radius:200px; border:none; box-shadow:none;">Complete</button>
+        </td>
+        <td style="height: 50px; font-size:12px;">2023-08-30</td>
+        <td style="height: 50px; font-size:12px;">
+          <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+          <a href="#" style="color: blue; text-decoration: none; margin-left: 5px;">View</a>
+        </td>
+      </tr>
+
+
+      <tr class="table-row">
+        <td style="height: 80px; color:white;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td style="height: 80px; color:gray; font-size:12px;" colspan="2">Showing 4 of 6 entries</td>
+        <td style="height: 80px; color:white;">John Doe</td>
+        <td style="height: 80px; color:white;">Dr. Smith</td>
+        <td style="height: 80px; color:white;">Tooth Extraction</td>
+        <td style="height: 80px; color:white;">01</td>
+        <td style="height: 80px; color:white;">
+        1
+        </td>
+
+        <td style="height: 80px; color: gray; font-size: 12px; display: flex; align-items: center; colspan="2"">
+          <span style="margin-right: 7px;">Rows Per Page</span>
+          <select style="width: 30px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+            <option value="option1">4</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+          </select>
+        </td>
+
+        
+        <td style="font-size: 25px;">
+          &lt;&nbsp;&nbsp;&gt;
+        </td>
+      
+      </tr>
+  </table>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#caseTable').DataTable({
+      paging: true, // Enable pagination
+      searching: false, // Enable searching
+      ordering: false, // Enable sorting
+      // You can add more options here as needed
+    });
+  });
+</script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+    });
+  </script>
+{% endblock javascripts %}
