@@ -1,0 +1,284 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page User {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<style>
+  .right-div {
+    padding: 20px;
+    width: 40%;
+    float: right;
+    margin-top:45px;
+  }
+  
+  .form-group {
+      margin-bottom: 20px;
+  }
+  .form-group label {
+      font-weight: bold;
+  }
+  .form-control {
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      padding: 8px;
+      width: 100%;
+  }
+  .form-control:focus {
+      border-color: #80bdff;
+      box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+  }
+  .progress-container {
+    width: 160px; /* Same width as the container */
+    height: 160px; /* Same height as the container */
+    position: relative;
+    margin-top: 20px; /* Add some spacing between the box and the progress */
+}
+
+.progress-background {
+    width: 100%;
+    height: 100%;
+    border: 20px solid #e0e0e0;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress-circle { 
+  width: 100%;
+  height: 100%;
+  border: 20px solid orange; /* Change color as desired */
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  transform: rotate(36deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+  .circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 16px;
+    margin: 0 5px;
+  }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+  <span  style="font-weight:bold; ">
+  Aisha kin - 25 F &nbsp; &nbsp; &nbsp;
+  </span>
+  <div style="flex: 1;">
+    <button style="display: block; width: 15%;  background-color: #9CB1CE; color: #fff; border: none; font-size:13px; border-radius:20px;">Next</button>
+  </div>
+  <div style="flex: 1; text-align: right;">
+    Clinic: Medcare Dental Clinic | Dispatched Date: NA
+  </div>
+</div>
+<hr>
+
+<div style="width:60% ;float:left;" >
+<div class="container mt-5" style="background-color:white;">
+  <div class="container mt-5" >
+    <h3 style="font-size:20px; font-weight:700;">Treatment Details</h3>
+  </div>
+</div>
+
+<div class="container mt-5"  style="background-color:white; padding-top:10px;">
+    <h3 style="font-size:20px; font-weight:700;">Treatment Plan <i class="fa fa-pencil-square-o" aria-hidden="true"></i></h3>    
+    <hr>
+    <label for="dentistInput" class="form-label">Note</label>
+    <div class="alert alert-light" role="alert" style="background-color: #fdf3e3; border-left: 4px solid #ffe0b2; padding: 1rem; font-size:13px;">
+      Please make sure to download the images and print them. I want a full plan about the aligners needed asap.
+    </div>
+    
+    <div class="bg-white p-3 rounded shadow-sm form-group">
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label for="dentistInput" style="font-size:12px;" class="form-label">Other Id</label>
+                <br>
+                01
+            </div>
+            <div class="col-md-3">
+                <label for="clinicInput" style="font-size:12px;" class="form-label">Aligners Upper</label>
+                <br>
+                  01
+            </div>
+            <div class="col-md-3">
+              <label for="clinicInput" style="font-size:12px;" class="form-label">Allgners Lower</label>
+                  <br>
+                  01
+          </div>
+          <div class="col-md-3">
+            <label for="clinicInput" style="font-size:12px;" class="form-label">Aligners Upper</label>
+            <br>
+                  01
+        </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+              <label for="dentistInput" style="font-size:12px;" class="form-label">Retainer Lower</label>
+              <br>02
+          </div>
+          <div class="col-md-3">
+              <label for="clinicInput" style="font-size:12px;" class="form-label">Treatment Plan Upper</label>
+              <br>02
+          </div>
+          <div class="col-md-3">
+            <label for="clinicInput" style="font-size:12px;" class="form-label">Treatment Plan lower</label>
+            <br>02
+        </div>
+        <div class="col-md-3">
+          <label for="clinicInput" style="font-size:12px;" class="form-label">Duration(months)</label>
+          <br>
+          02
+      </div>
+      </div>
+      <div class="row mb-3">
+
+        <div class="col-md-4" style="color:blue; ">
+          <label for="clinicInput" class="form-label" style="font-size:12px;">Link</label>
+          <br>
+          www.ukaligners.com/110
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div style="font-size: 16px;  padding-left: 10px;" colspan="2">
+            Attachments &nbsp;&nbsp;&nbsp;
+            <i class="fa fa-download" aria-hidden="true" style="color: blue;">
+              Download All
+            </i>
+          </div>
+        </div>
+    </div>
+    
+    <div style="margin-left:10px; margin-top:10px;  width: 80px; height: 80px; background-color: #BAD3DD; display: flex; justify-content: center; align-items: center; ">
+      <i class="fa fa-download" aria-hidden="true" style="color: blue;"></i>
+    </div>
+    <div style=" margin-left:20px; margin-top:10px;   width: 80px; height: 80px; background-color: #BAD3DD; display: flex; justify-content: center; align-items: center;">
+      <i class="fa fa-download" aria-hidden="true" style="color: blue;"></i>
+    </div>
+    
+  
+      
+    </div>
+    </div>
+
+    
+</div>
+
+
+<div class="container mt-5" style="background-color:white;">
+  <div class="container mt-5" style="margin-top:5px;" >
+    <br>
+    <h3 style="font-size:20px; font-weight:700; " >Treatment Expenses <i class="fa fa-pencil-square-o" aria-hidden="true"></i></h3>
+  </div>
+  <hr>
+  <button style="background-color: blue; color: white; border: none; padding: 10px 20px; text-align: center; display: inline-block; font-size: 16px; border-radius: 5px;">View Plain</button>
+  <br>
+  <br>
+  <br>
+</div>
+<br>
+</div>
+
+
+
+<div class="right-div">
+  <div style="width:380px; background-color:#0A4173; height:180px; margin-top:-20px; padding-top:20px; border-radius:10px;">
+    <table style="width:330px; margin-left:30px;  background-color:#0A4173; color:white;">
+      <tr>
+        <td >Name</td>
+        <td style="text-align: right;">Aisha kin</td>
+      </tr>
+      <tr>
+        <td >Age</td>
+        <td style="text-align: right;">25</td>
+      </tr>
+      <tr>
+        <td >Gender</td>
+        <td style="text-align: right;">Female</td>
+      </tr>
+      <tr>
+        <td >Contact</td>
+        <td style="text-align: right;">+912 4443456</td>
+      </tr>
+      <tr>
+        <td >Date</td>
+        <td style="text-align: right;">30/06/2023</td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  
+  <div style="background-color: white; border-radius: 20px; width: 380px;">
+    <div style="margin-top: 10px; font-weight: bold; margin: 20px; padding-top: 10px;">Users <span style="float: right; color: blue"><i class="fa fa-plus-circle" aria-hidden="true"> add user</i></span></div>
+    <hr>
+    
+    <div style="display: flex; align-items: center; padding: 10px;">
+        <div style="width: 30px; height: 30px; background-color: blue; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 10px;">J</div>
+        <div style="flex-grow: 1;">John</div>
+        <div style="margin-left: 10px;">Admin</div>
+    </div>
+    <div style="display: flex; align-items: center; padding: 10px;">
+      <div style="width: 30px; height: 30px; background-color: blue; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 10px;">M</div>
+      <div style="flex-grow: 1;">Max</div>
+      <div style="margin-left: 10px;">Dentist</div>
+  </div>
+  <div style="display: flex; align-items: center; padding: 10px;">
+    <div style="width: 30px; height: 30px; background-color: blue; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 10px;">T</div>
+    <div style="flex-grow: 1;">Tommy</div>
+    <div style="margin-left: 10px;">Planner</div>
+</div>
+</div>
+
+  <br>
+  <div style="background-color: white; border-radius:20px; width:380px;">
+    <div style=" margin-top: 10px; font-weight:bold; margin:20px; padding-top:10px;">Case Progress</div>
+    <hr>
+    <div class="progress-container"style="margin-left:120px;">
+      <div class="progress-background"></div>
+      <div class="progress-circle" style="transform: rotate(36deg);"></div>
+      <div class="progress-text">39%</div>
+    </div>
+  
+    <br>
+</div>
+
+    
+</div>
+
+
+  
+  
+  
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

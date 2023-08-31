@@ -1,0 +1,265 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page User {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<style>
+    .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        font-weight: bold;
+      }
+      .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        padding: 8px;
+        width: 100%;
+      }
+      .form-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+      }
+      .input-field{
+        width:280px;
+        height:40px;
+      }
+
+      .input-field1{
+        width:900px;
+        height:40px;
+      }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+<h2>Create Case</h2>
+<div class="container mt-5" style="background-color:white;">
+
+  <div class="bg-white p-4 rounded shadow-sm form-group">
+    <div class="row">
+      <div class="col-md-4">
+        <label for="dentistInput" class="form-label">Dentist*</label>
+        <br>
+        <input type="text" id="dentistInput" class="input-field" style="padding:5px;" placeholder="Enter dentist's name">
+      </div>
+
+        <div class="col-md-4">
+            <label for="clinicSelect" class="form-label">Clinic*</label>
+            <br>
+            <select id="clinicSelect" class="input-field" style="padding-left: 5px; width:280px; height:40px; color:gray;">
+                <option value="Medcare Dental Clinic">Medcare Dental Clinic</option>
+                <option value="clinic1">Clinic 1</option>
+                <option value="clinic2">Clinic 2</option>
+                <option value="clinic3">Clinic 3</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+
+      
+    </div>
+  </div>
+    
+  <div class="container mt-5">
+    <h5 class="mt-4">Personal Details</h5>
+  </div>
+    
+    <div class=" p-4 rounded shadow-sm form-group " style="background-color:#f2f5f9;">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="dentistInput" class="form-label">First Name*</label>
+                <br>
+                <input type="text" id="dentistInput" class="input-field" style="padding:5px;" >
+              </div>
+              <div class="col-md-4">
+                <label for="dentistInput" class="form-label">Last Name*</label>
+                <br>
+                <input type="text" id="dentistInput" class="input-field" style="padding:5px;" >
+              </div>
+              <div class="col-md-4">
+                <label for="dentistInput" class="form-label">Date of Birth*</label>
+                <br>
+                <input type="text" id="dentistInput" class="input-field" style="padding:5px;" >
+              </div>
+        </div>
+        
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="clinicSelect" class="form-label">Gender*</label>
+                    <br>
+                    <select id="clinicSelect" class="input-field" style="padding-left: 5px; width:280px; height:40px; color:gray;">
+                        <option value="Medcare Dental Clinic">Select The Gender</option>
+                        <option value="clinic1">Clinic 1</option>
+                        <option value="clinic2">Clinic 2</option>
+                        <option value="clinic3">Clinic 3</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+
+              <div class="col-md-4">
+                <label for="dentistInput" class="form-label">Contact*</label>
+                <br>
+                <input type="text" id="dentistInput" class="input-field" style="padding:5px;" >
+              </div>
+        
+            </div>        
+    </div>
+
+
+    <div class="container mt-5">
+        <h5 class="mt-4">Treatment Details</h5>
+      </div>
+        
+        <div class=" p-4 rounded shadow-sm form-group " style="background-color:#f2f5f9;">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="clinicSelect" class="form-label">Treatment*</label>
+                    <br>
+                    <select id="clinicSelect" class="input-field" style="padding-left: 5px; width:280px; height:40px; color:gray;">
+                        <option value="Medcare Dental Clinic">Choose Treatment</option>
+                        <option value="clinic1">Clinic 1</option>
+                        <option value="clinic2">Clinic 2</option>
+                        <option value="clinic3">Clinic 3</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+
+                  <div class="col-md-4">
+                    <label for="dentistInput" class="form-label">Section*</label>
+                    <br>
+                    <input type="text" id="dentistInput" class="input-field" style="padding:5px;" >
+                  </div>
+                  <div class="col-md-4">
+                    <label for="dentistInput" class="form-label">Orthodontic Treatment In Past*</label>
+                    <br>
+                    <input type="text" id="dentistInput" class="input-field" style="padding:5px;" >
+                  </div>
+            </div>
+            <div style="position: relative; display: inline-block;">
+                <button style="background-color: #7088A8; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px;">Refinement</button>
+                <button style="position: absolute; top: 0; right: 0; background-color: transparent; border: none; color: #7088A8; font-size: 20px; cursor: pointer;">x</button>
+            </div>
+            <div style="position: relative; display: inline-block;">
+                <button style="background-color: #7088A8; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px;">Smile Makeover</button>
+                <button style="position: absolute; top: 0; right: 0; background-color: transparent; border: none; color: #7088A8; font-size: 20px; cursor: pointer;">x</button>
+            </div>
+            
+            <div>
+                <br>
+                <label for="dentistInput" class="form-label">Additional Information</label>
+                <br>
+                <input type="text" id="dentistInput" class="input-field1" style="padding:5px;" >
+              </div>
+            
+        </div>
+
+
+        <div class="container mt-5">
+          <h5 class="mt-4">Attachments</h5>
+        </div>
+
+        <div class=" p-4 rounded shadow-sm form-group " style="background-color:#f2f5f9;">
+            <div class="row mb-3">
+                <div class="col-md-6" style="margin-left:23px;">
+                    <input class="form-check-input" type="checkbox" value="" id="checkInput">
+                    Request Collection
+                </div>
+            </div> 
+            <div class="row mb-3">
+                <div class="col-md-4" style="">
+                    <label for="clinicSelect" class="form-label">Upper Jaw*</label>
+                </div>
+            </div> 
+            <div class="row mb-3" style="margin-left:0px;">
+                <table style="border-collapse: collapse; border: 2px dashed #000; width: 100px; height: 100px; ">
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px; font-size: 24px; color: #000;">+</td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                    </tr>
+                  </table>
+                  <table style="margin-left:10px; border-collapse: collapse; background-color: #BAD3DD; width: 100px; height: 100px; position: relative;">
+                    <tr>
+                      <td colspan="3" style="text-align: right; padding: 1px;">
+                        <button style="background-color: transparent; border: none; font-size: 16px;">x</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                    </tr>
+                  </table>
+                  <table style="margin-left:10px; border-collapse: collapse; background-color: #BAD3DD; width: 100px; height: 100px; position: relative;">
+                    <tr>
+                      <td colspan="3" style="text-align: right; padding: 1px;">
+                        <button style="background-color: transparent; border: none; font-size: 16px;">x</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                      <td style="text-align: center; vertical-align: middle; padding: 10px;"></td>
+                    </tr>
+                  </table>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4" style="">
+                    <label for="clinicSelect" class="form-label">Additional</label>
+                </div>
+            </div> 
+            <button style="background-color: white; color: black; border:none; padding: 20px 60px; font-size: 16px; cursor: pointer;"> + Choose File </button>
+            <br>
+            <label for="clinicSelect" class="form-label">jpg, png</label>
+            
+        </div>
+        
+        
+        <button style="background-color: blue; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer;">Create Case</button> <span style="color:blue;">&nbsp;&nbsp;&nbsp;Clear</span>
+        <br> 
+        <br> 
+       
+    </div>
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
