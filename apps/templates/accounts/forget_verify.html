@@ -1,0 +1,56 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Verify Registration {% endblock %}
+
+<!-- Specific Page CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">
+                    Verify Registration
+                </h4>
+            </div>
+            <div class="card-body">
+
+                <h6 class="card-category">
+                    {{ msg }}
+                </h6>
+
+                <br />
+
+                {% if not success %}
+                <form role="form" method="post" action="{% url 'verify_forget' %}">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Verification Code</label>
+                                <input type="text" name="verification_code" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <button type="submit" class="btn btn-primary pull-left">Verify</button>
+
+                    <div class="clearfix"></div>
+
+                </form>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}

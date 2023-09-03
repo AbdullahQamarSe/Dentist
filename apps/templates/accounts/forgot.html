@@ -1,8 +1,8 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Login {% endblock %} 
+{% block title %} Reset Password {% endblock %}
 
-<!-- Specific Page CSS goes HERE  -->
+<!-- Specific Page CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
@@ -12,7 +12,7 @@
       <div class="card">
         <div class="card-header card-header-primary">
           <h4 class="card-title">
-            Login
+            Reset Password
           </h4>
         </div>
         <div class="card-body">
@@ -21,10 +21,10 @@
               {% if msg %}
                 <span class="text-danger">{{ msg | safe }}</span>
               {% else %}
-                  Add your credentials
+                  Enter your email to reset your password
               {% endif %}  
           </h6>
-          
+
           <br />
 
           <form role="form" method="post" action="">
@@ -34,36 +34,20 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Username</label>
-                  {{ form.username }}
+                  <label class="bmd-label-floating">Email</label>
+                  <input type="email" name="email" class="form-control" required>
                 </div>
               </div>
             </div>
 
             <br />
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label class="bmd-label-floating">Password</label>
-                  {{ form.password }}
-                </div>
-              </div>
-            </div>
-
-            <br />
-
-            <button type="submit" name="login" class="btn btn-primary pull-left">Login</button>
+            <button type="submit" name="reset" class="btn btn-primary pull-left">Reset Password</button>
 
             &nbsp; &nbsp; 
             <span class="pull-right">
-              Don't have an account? <a href="{% url 'register' %}" class="text-primary">Create</a>
+              Remember your password? <a href="{% url 'login' %}" class="text-primary">Login</a>
             </span>
-
-            <span class="pull-right">
-              <a href="{% url 'forget' %}" class="text-primary">Forgot Password</a>
-            </span>
-
 
             <div class="clearfix"></div>
 
@@ -75,5 +59,5 @@
 
 {% endblock content %}
 
-<!-- Specific Page JS goes HERE  -->
+<!-- Specific Page JS goes HERE -->
 {% block javascripts %}{% endblock javascripts %}
